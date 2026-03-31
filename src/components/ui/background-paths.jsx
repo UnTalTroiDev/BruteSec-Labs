@@ -70,7 +70,7 @@ export function BackgroundPaths({ title = "Background Paths", subtitle }) {
         width: "100%",
         height: "100%",
         display: "flex",
-        alignItems: "center",
+        alignItems: "flex-start",
         justifyContent: "center",
         overflow: "hidden",
         background: "#0a0a0a",
@@ -90,6 +90,7 @@ export function BackgroundPaths({ title = "Background Paths", subtitle }) {
           zIndex: 10,
           textAlign: "center",
           padding: "0 24px",
+          marginTop: "18vh",
         }}
       >
         <h1
