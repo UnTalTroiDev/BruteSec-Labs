@@ -31,10 +31,10 @@ export const translations = {
       ourTeam: "Our Team",
       services: "Services",
       servicesList: [
-        "Penetration Testing",
-        "Red Team Operations",
+        "Pentesting & Red Team",
+        "PTSaaS (Continuous Auditing)",
         "Threat Intelligence",
-        "Security Architecture Review",
+        "Security Architecture Review & Secure Development",
         "Incident Response Readiness",
       ],
       roles: {
@@ -103,10 +103,10 @@ export const translations = {
       ourTeam: "Nuestro Equipo",
       services: "Servicios",
       servicesList: [
-        "Pruebas de Penetración",
-        "Operaciones de Red Team",
+        "Pentesting & Red Team",
+        "PTSaaS (Auditoría continua)",
         "Inteligencia de Amenazas",
-        "Revisión de Arquitectura de Seguridad",
+        "Revisión de Arquitectura de Seguridad y Desarrollo seguro",
         "Preparación para Respuesta a Incidentes",
       ],
       roles: {
