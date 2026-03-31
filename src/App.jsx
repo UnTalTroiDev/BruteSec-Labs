@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { PROJECTS } from "./data/projects";
 import { TEAM } from "./data/team";
 import { BackgroundPaths } from "@/components/ui/background-paths";
+import { LangProvider, useLang } from "./LangContext";
 
 
 /* ─────────────────────────────────────────────
@@ -189,7 +190,12 @@ function Cursor({ dark }) {
    BOTTOM FLOATING NAV
 ───────────────────────────────────────────── */
 function BottomNav({ page, setPage }) {
-  const links = ["Projects", "About us", "Contact"];
+  const { t } = useLang();
+  const links = [
+    { key: "Projects",  label: t.nav.projects },
+    { key: "About us",  label: t.nav.aboutUs  },
+    { key: "Contact",   label: t.nav.contact  },
+  ];
   return (
     <nav
       aria-label="Page navigation"
@@ -208,12 +214,12 @@ function BottomNav({ page, setPage }) {
         border: "1px solid #e8e8e8",
       }}
     >
-      {links.map((link) => {
-        const active = page === link;
+      {links.map(({ key, label }) => {
+        const active = page === key;
         return (
           <button
-            key={link}
-            onClick={() => setPage(link)}
+            key={key}
+            onClick={() => setPage(key)}
             aria-current={active ? "page" : undefined}
             style={{
               background: active ? "#111" : "transparent",
@@ -229,7 +235,7 @@ function BottomNav({ page, setPage }) {
               fontFamily: "inherit",
             }}
           >
-            {link}
+            {label}
           </button>
         );
       })}
@@ -281,9 +287,10 @@ function HomePage({ onDone }) {
 /* ─────────────────────────────────────────────
    PAGE: PROJECTS
 ───────────────────────────────────────────── */
-const FILTERS = ["All", "Red Team", "Threat Intel", "Architecture"];
+const FILTER_KEYS = ["All", "Red Team", "Threat Intel", "Architecture"];
 
 function ProjectsPage() {
+  const { t } = useLang();
   const [active, setActive] = useState("All");
   const visible = useFadeIn();
 
@@ -304,7 +311,7 @@ function ProjectsPage() {
           letterSpacing: "-0.02em",
         }}
       >
-        Compelling security research sits at the core of everything we do
+        {t.projects.heading}
       </h1>
 
       {/* Filter tabs */}
@@ -317,25 +324,25 @@ function ProjectsPage() {
           paddingBottom: 12,
         }}
       >
-        {FILTERS.map((f) => (
+        {FILTER_KEYS.map((key) => (
           <button
-            key={f}
-            onClick={() => setActive(f)}
+            key={key}
+            onClick={() => setActive(key)}
             style={{
               background: "none",
               border: "none",
               fontSize: 14,
               cursor: "pointer",
-              color: active === f ? "#111" : "#999",
-              fontWeight: active === f ? 600 : 400,
+              color: active === key ? "#111" : "#999",
+              fontWeight: active === key ? 600 : 400,
               fontFamily: "inherit",
               padding: "0 0 4px",
-              borderBottom: active === f ? "2px solid #111" : "2px solid transparent",
+              borderBottom: active === key ? "2px solid #111" : "2px solid transparent",
               letterSpacing: "0.01em",
               transition: "color 0.2s",
             }}
           >
-            {f}
+            {t.projects.filters[key]}
           </button>
         ))}
       </div>
@@ -453,6 +460,7 @@ const PATTERNS = {
 };
 
 function ProjectCard({ project }) {
+  const { t } = useLang();
   const [hovered, setHovered] = useState(false);
   const PatternSVG = PATTERNS[project.pattern];
 
@@ -506,7 +514,7 @@ function ProjectCard({ project }) {
           borderRadius: 999,
         }}
       >
-        {project.category}
+        {t.projects.categories[project.category] ?? project.category}
       </span>
 
       {/* Título */}
@@ -538,7 +546,7 @@ function ProjectCard({ project }) {
           display: "block",
         }}
       >
-        View project →
+        {t.projects.viewProject}
       </span>
     </div>
   );
@@ -550,6 +558,7 @@ function ProjectCard({ project }) {
 const LOGO_COPIES = Array.from({ length: 14 });
 
 function ClientsCarousel() {
+  const { t } = useLang();
   return (
     <div style={{ marginTop: 80 }}>
       <p
@@ -562,7 +571,7 @@ function ClientsCarousel() {
           marginBottom: 28,
         }}
       >
-        Trusted by
+        {t.projects.trustedBy}
       </p>
       <div
         style={{
@@ -593,15 +602,8 @@ function ClientsCarousel() {
 /* ─────────────────────────────────────────────
    PAGE: ABOUT US
 ───────────────────────────────────────────── */
-const SERVICES = [
-  "Penetration Testing",
-  "Red Team Operations",
-  "Threat Intelligence",
-  "Security Architecture Review",
-  "Incident Response Readiness",
-];
-
 function AboutPage() {
+  const { t } = useLang();
   const visible = useFadeIn();
 
   return (
@@ -628,7 +630,7 @@ function AboutPage() {
               marginBottom: 32,
             }}
           >
-            We break things so others don't have to.
+            {t.about.heading}
           </h1>
           <p
             style={{
@@ -639,10 +641,7 @@ function AboutPage() {
               maxWidth: 480,
             }}
           >
-            BruteSec Labs is an offensive security consultancy focused on
-            adversarial simulation, threat intelligence, and zero-trust
-            architecture. We operate at the intersection of research and
-            real-world impact.
+            {t.about.p1}
           </p>
           <p
             style={{
@@ -652,9 +651,7 @@ function AboutPage() {
               maxWidth: 480,
             }}
           >
-            Our team is built from practitioners — red teamers, malware
-            analysts, and researchers who have spent years working in
-            environments where failure is not an option.
+            {t.about.p2}
           </p>
         </div>
 
@@ -670,7 +667,7 @@ function AboutPage() {
               marginTop: 4,
             }}
           >
-            Our Team
+            {t.about.ourTeam}
           </p>
           {TEAM.map((member) => (
             <div
@@ -692,7 +689,9 @@ function AboutPage() {
               >
                 {member.name}
               </span>
-              <span style={{ fontSize: 13, color: "#888" }}>{member.role}</span>
+              <span style={{ fontSize: 13, color: "#888" }}>
+                {t.about.roles[member.role] ?? member.role}
+              </span>
             </div>
           ))}
 
@@ -707,9 +706,9 @@ function AboutPage() {
               marginTop: 48,
             }}
           >
-            Services
+            {t.about.services}
           </p>
-          {SERVICES.map((s) => (
+          {t.about.servicesList.map((s) => (
             <div
               key={s}
               style={{
@@ -735,10 +734,11 @@ const SOCIAL_LINKS = [
   { label: "X (Twitter)", href: "https://twitter.com" },
   { label: "LinkedIn", href: "https://linkedin.com" },
   { label: "GitHub", href: "https://github.com" },
-  { label: "Blog", href: "#" },
+  { label: "Instagram", href: "https://instagram.com/bruteseclasb" },
 ];
 
 function ContactPage() {
+  const { t } = useLang();
   const visible = useFadeIn();
   const [time, setTime] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -779,7 +779,7 @@ function ContactPage() {
             margin: 0,
           }}
         >
-          Let's work together. We'd love to hear from you.
+          {t.contact.heading}
         </h1>
 
         {/* Middle: general enquiries */}
@@ -793,12 +793,12 @@ function ContactPage() {
               marginTop: 8,
             }}
           >
-            General Enquiries
+            {t.contact.generalEnquiries}
           </p>
           <p style={{ fontSize: 14, color: "#444", margin: 0, lineHeight: 1.7 }}>
             hello@bruteseclabs.io
             <br />
-            +1 (555) 0198 2847
+            +57 NumeroEmpresarialFalta
           </p>
 
           <p
@@ -810,14 +810,12 @@ function ContactPage() {
               marginBottom: 10,
             }}
           >
-            Address
+            {t.contact.address}
           </p>
           <p style={{ fontSize: 14, color: "#444", margin: 0, lineHeight: 1.7 }}>
-            Cyber District
+            Poblado
             <br />
-            420 Binary Lane
-            <br />
-            Austin, TX 78701
+            Medellín, Edificio SELECT
           </p>
 
           {/* Live clock */}
@@ -841,8 +839,8 @@ function ContactPage() {
                 flexShrink: 0,
               }}
             />
-            It's {time},{" "}
-            {isOpen ? "we're open" : "we're closed"}
+            {t.contact.timePrefix} {time},{" "}
+            {isOpen ? t.contact.open : t.contact.closed}
           </div>
         </div>
 
@@ -857,7 +855,7 @@ function ContactPage() {
               marginTop: 8,
             }}
           >
-            Social
+            {t.contact.social}
           </p>
           {SOCIAL_LINKS.map(({ label, href }) => (
             <a
@@ -911,7 +909,7 @@ function ContactPage() {
               marginBottom: 12,
             }}
           >
-            Ready when you are
+            {t.contact.readyWhen}
           </p>
           <p
             style={{
@@ -923,7 +921,7 @@ function ContactPage() {
               letterSpacing: "-0.01em",
             }}
           >
-            Start a conversation →
+            {t.contact.startConversation}
           </p>
         </div>
       </div>
@@ -932,6 +930,7 @@ function ContactPage() {
 }
 
 function Footer() {
+  const { t } = useLang();
   const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
 
@@ -947,7 +946,7 @@ function Footer() {
       style={{
         background: "#0a0a0a",
         color: "#fff",
-        padding: "72px 48px 40px",
+        padding: "48px 48px 32px",
         marginTop: 0,
       }}
     >
@@ -960,7 +959,7 @@ function Footer() {
             display: "grid",
             gridTemplateColumns: "1.8fr 1fr 1fr 1.4fr",
             gap: 48,
-            paddingBottom: 56,
+            paddingBottom: 32,
             borderBottom: "1px solid rgba(255,255,255,0.08)",
             alignItems: "start",
           }}
@@ -978,8 +977,7 @@ function Footer() {
                 maxWidth: 300,
               }}
             >
-              Offensive security consultancy focused on adversarial simulation,
-              threat intelligence, and zero-trust architecture.
+              {t.footer.tagline}
             </p>
           </div>
 
@@ -995,14 +993,12 @@ function Footer() {
                 marginBottom: 16,
               }}
             >
-              Address
+              {t.footer.address}
             </p>
             <p style={{ fontSize: 14, color: "rgba(255,255,255,0.55)", lineHeight: 1.8 }}>
-              Cyber District
+              Poblado
               <br />
-              420 Binary Lane
-              <br />
-              Austin, TX 78701
+              Medellín, Edificio SELECT
             </p>
           </div>
 
@@ -1018,12 +1014,12 @@ function Footer() {
                 marginBottom: 16,
               }}
             >
-              Contact
+              {t.footer.contact}
             </p>
             <p style={{ fontSize: 14, color: "rgba(255,255,255,0.55)", lineHeight: 1.8, marginBottom: 24 }}>
-              hello@bruteseclabs.io
+              brutek-sec@proton.me
               <br />
-              +1 (555) 0198 2847
+              +57 (Number) Empresarial
             </p>
 
             <p
@@ -1036,7 +1032,7 @@ function Footer() {
                 marginBottom: 12,
               }}
             >
-              Social
+              {t.footer.social}
             </p>
             {SOCIAL_LINKS.map(({ label, href }) => (
               <a
@@ -1072,15 +1068,15 @@ function Footer() {
                 marginBottom: 16,
               }}
             >
-              Security Advisories
+              {t.footer.advisories}
             </p>
             <p style={{ fontSize: 14, color: "rgba(255,255,255,0.45)", lineHeight: 1.7, marginBottom: 20 }}>
-              Get our latest advisories, writeups, and threat reports directly in your inbox.
+              {t.footer.newsletterText}
             </p>
 
             {sent ? (
               <p style={{ fontSize: 14, color: "#4ade80" }}>
-                ✓ Successfully subscribed
+                {t.footer.subscribed}
               </p>
             ) : (
               <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 10 }}>
@@ -1118,7 +1114,7 @@ function Footer() {
                   onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
                   onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
                 >
-                  Subscribe
+                  {t.footer.subscribe}
                 </button>
               </form>
             )}
@@ -1136,8 +1132,8 @@ function Footer() {
             color: "rgba(255,255,255,0.25)",
           }}
         >
-          <span>© {new Date().getFullYear()} BruteSec Labs. All rights reserved.</span>
-          <span>Privacy Policy · Terms of Service</span>
+          <span>© {new Date().getFullYear()} BruteSec Labs. {t.footer.allRights}</span>
+          <span>{t.footer.legal}</span>
         </div>
 
       </div>
@@ -1148,7 +1144,8 @@ function Footer() {
 /* ─────────────────────────────────────────────
    APP ROOT
 ───────────────────────────────────────────── */
-export default function App() {
+function AppInner() {
+  const { lang, setLang } = useLang();
   const [page, setPage] = useState("Home");
   const [displayPage, setDisplayPage] = useState("Home");
   // overlay: null | "in" | "out"
@@ -1216,7 +1213,7 @@ export default function App() {
           transition: "background 0.3s ease",
         }}
       >
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "24px 48px 0" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "24px 48px 0", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <button
             onClick={() => navigate("Home")}
             style={{
@@ -1233,6 +1230,41 @@ export default function App() {
           >
             <BruteSecLogo height={22} color={logoColor} />
           </button>
+
+          {/* Language toggle */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 2,
+              background: isHome ? "rgba(255,255,255,0.08)" : "#f0f0f0",
+              borderRadius: 999,
+              padding: "3px 4px",
+            }}
+          >
+            {["en", "es"].map((l) => (
+              <button
+                key={l}
+                onClick={() => setLang(l)}
+                style={{
+                  background: lang === l ? (isHome ? "#fff" : "#111") : "transparent",
+                  color: lang === l ? (isHome ? "#111" : "#fff") : (isHome ? "rgba(255,255,255,0.5)" : "#888"),
+                  border: "none",
+                  borderRadius: 999,
+                  padding: "4px 12px",
+                  fontSize: 12,
+                  fontWeight: 600,
+                  letterSpacing: "0.05em",
+                  cursor: "pointer",
+                  fontFamily: "inherit",
+                  textTransform: "uppercase",
+                  transition: "background 0.2s, color 0.2s",
+                }}
+              >
+                {l}
+              </button>
+            ))}
+          </div>
         </div>
       </header>
 
@@ -1247,5 +1279,13 @@ export default function App() {
 
       <BottomNav page={page} setPage={navigate} />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <LangProvider>
+      <AppInner />
+    </LangProvider>
   );
 }
