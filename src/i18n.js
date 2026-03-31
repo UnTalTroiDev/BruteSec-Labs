@@ -28,6 +28,12 @@ export const translations = {
       heading: "We identify vulnerabilities before they become real threats.",
       p1: "BruteSec Labs is an offensive security firm specialized in adversarial simulation, threat intelligence, and zero-trust architecture. We integrate AI Pentesting and PTSaaS (Pentesting as a Service) to deliver continuous, automated, and adaptive penetration testing. We operate before, during, and after the attack, securing systems from their design and eliminating vulnerabilities before they exist. We combine artificial intelligence with red team experts to identify, exploit, and prioritize risks in real time.",
       p2: "We transform traditional pentesting into a continuous, scalable process integrated into DevSecOps, securing critical software from day one and preparing it for real adversarial scenarios.",
+      differential: {
+        label: "DIFFERENTIAL",
+        line1: "We don't audit once. We audit always.",
+        line2: "AI + offensive + automation",
+        line3: "to find flaws before the attack.",
+      },
       ourTeam: "Our Team",
       services: "Services",
       servicesList: [
@@ -35,7 +41,7 @@ export const translations = {
         "PTSaaS (Continuous Auditing)",
         "Threat Intelligence",
         "Security Architecture Review & Secure Development",
-        "Incident Response Readiness",
+        "Incident Response",
       ],
       roles: {
         "Founder & Lead Pentester": "Founder & Lead Pentester",
@@ -100,6 +106,12 @@ export const translations = {
       heading: "Identificamos vulnerabilidades antes de que se conviertan en amenazas reales.",
       p1: "BruteSec Labs es una firma de seguridad ofensiva especializada en simulación adversarial, inteligencia de amenazas y arquitectura de confianza cero. Integramos IA Pentesting y PTSaaS (Pentesting as a Service) para ofrecer pruebas de penetración continuas, automatizadas y adaptativas. Operamos antes, durante y después del ataque, asegurando sistemas desde su diseño y eliminando vulnerabilidades antes de que existan. Combinamos inteligencia artificial con expertos en red team para identificar, explotar y priorizar riesgos en tiempo real.",
       p2: "Transformamos el pentesting tradicional en un proceso continuo, escalable e integrado en DevSecOps, asegurando software crítico desde el primer momento y preparándolo para escenarios adversariales reales.",
+      differential: {
+        label: "DIFERENCIAL",
+        line1: "No auditamos una vez. Auditamos siempre.",
+        line2: "IA + ofensiva + automatización",
+        line3: "para encontrar fallos antes del ataque.",
+      },
       ourTeam: "Nuestro Equipo",
       services: "Servicios",
       servicesList: [
@@ -107,7 +119,7 @@ export const translations = {
         "PTSaaS (Auditoría continua)",
         "Inteligencia de Amenazas",
         "Revisión de Arquitectura de Seguridad y Desarrollo seguro",
-        "Preparación para Respuesta a Incidentes",
+        "Respuesta a incidentes",
       ],
       roles: {
         "Founder & Lead Pentester": "Fundador y Pentester Principal",

@@ -724,6 +724,72 @@ function AboutPage() {
           ))}
         </div>
       </div>
+
+      {/* ── Differential block ── */}
+      <div
+        style={{
+          background: "#0a0a0a",
+          margin: "72px -48px 0",
+          padding: "80px 48px",
+          textAlign: "center",
+        }}
+      >
+        <p
+          style={{
+            fontSize: 11,
+            fontWeight: 700,
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            color: "rgba(255,255,255,0.35)",
+            marginBottom: 32,
+            fontFamily: "'Inter', sans-serif",
+          }}
+        >
+          {t.about.differential.label}
+        </p>
+        <p
+          style={{
+            fontSize: "clamp(28px, 5vw, 64px)",
+            fontWeight: 400,
+            fontFamily: "'Georgia', 'Times New Roman', serif",
+            color: "#fff",
+            lineHeight: 1.15,
+            letterSpacing: "-0.02em",
+            margin: "0 auto",
+            maxWidth: 860,
+          }}
+        >
+          {t.about.differential.line1}
+        </p>
+        <p
+          style={{
+            fontSize: "clamp(28px, 5vw, 64px)",
+            fontWeight: 400,
+            fontFamily: "'Georgia', 'Times New Roman', serif",
+            color: "rgba(255,255,255,0.35)",
+            lineHeight: 1.15,
+            letterSpacing: "-0.02em",
+            margin: "0 auto",
+            maxWidth: 860,
+          }}
+        >
+          {t.about.differential.line2}
+        </p>
+        <p
+          style={{
+            fontSize: "clamp(28px, 5vw, 64px)",
+            fontWeight: 400,
+            fontFamily: "'Georgia', 'Times New Roman', serif",
+            color: "rgba(255,255,255,0.35)",
+            lineHeight: 1.15,
+            letterSpacing: "-0.02em",
+            margin: "0 auto",
+            maxWidth: 860,
+          }}
+        >
+          {t.about.differential.line3}
+        </p>
+      </div>
     </div>
   );
 }
