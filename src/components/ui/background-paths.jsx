@@ -139,12 +139,12 @@ export function BackgroundPaths({ title = "Background Paths", subtitle }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 1.2, ease: "easeOut" }}
             style={{
-              marginTop: 20,
-              fontSize: "clamp(13px, 1.6vw, 18px)",
-              color: "rgba(255,255,255,0.45)",
-              letterSpacing: "0.04em",
+              marginTop: 24,
+              fontSize: "clamp(16px, 2vw, 26px)",
+              color: "rgba(255,255,255,0.5)",
+              letterSpacing: "0.02em",
               fontWeight: 400,
-              fontFamily: "inherit",
+              fontFamily: "'Inter', sans-serif",
             }}
           >
             {subtitle}
