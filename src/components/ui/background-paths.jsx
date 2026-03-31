@@ -24,8 +24,8 @@ function FloatingPaths({ position }) {
         <defs>
           <radialGradient id={`fade-${position}`} cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="black" stopOpacity="1" />
-            <stop offset="35%" stopColor="black" stopOpacity="1" />
-            <stop offset="65%" stopColor="white" stopOpacity="1" />
+            <stop offset="55%" stopColor="black" stopOpacity="1" />
+            <stop offset="80%" stopColor="white" stopOpacity="1" />
             <stop offset="100%" stopColor="white" stopOpacity="1" />
           </radialGradient>
           <mask id={`mask-${position}`}>
@@ -70,7 +70,7 @@ export function BackgroundPaths({ title = "Background Paths", subtitle }) {
         width: "100%",
         height: "100%",
         display: "flex",
-        alignItems: "flex-start",
+        alignItems: "center",
         justifyContent: "center",
         overflow: "hidden",
         background: "#0a0a0a",
@@ -90,7 +90,6 @@ export function BackgroundPaths({ title = "Background Paths", subtitle }) {
           zIndex: 10,
           textAlign: "center",
           padding: "0 24px",
-          marginTop: "18vh",
         }}
       >
         <h1
