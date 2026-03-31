@@ -26,8 +26,8 @@ export const translations = {
     },
     about: {
       heading: "We identify vulnerabilities before they become real threats.",
-      p1: "BruteSec Labs is an offensive security firm specialized in adversarial simulation, threat intelligence, and zero-trust architecture. We operate before, during, and after the attack, securing systems from their design to eliminate vulnerabilities before they exist.",
-      p2: "Our team is built from red teamers, malware analysts, and researchers who work in environments where failure is not an option. We develop and secure critical software to be safe from the first commit and resilient against real adversarial scenarios.",
+      p1: "BruteSec Labs is an offensive security firm specialized in adversarial simulation, threat intelligence, and zero-trust architecture. We integrate AI Pentesting and PTSaaS (Pentesting as a Service) to deliver continuous, automated, and adaptive penetration testing. We operate before, during, and after the attack, securing systems from their design and eliminating vulnerabilities before they exist. We combine artificial intelligence with red team experts to identify, exploit, and prioritize risks in real time.",
+      p2: "We transform traditional pentesting into a continuous, scalable process integrated into DevSecOps, securing critical software from day one and preparing it for real adversarial scenarios.",
       ourTeam: "Our Team",
       services: "Services",
       servicesList: [
@@ -98,8 +98,8 @@ export const translations = {
     },
     about: {
       heading: "Identificamos vulnerabilidades antes de que se conviertan en amenazas reales.",
-      p1: "BruteSec Labs es una firma de seguridad ofensiva especializada en simulación adversarial, inteligencia de amenazas y arquitectura de confianza cero. Operamos antes, durante y después del ataque, asegurando sistemas desde su diseño para eliminar vulnerabilidades antes de que existan.",
-      p2: "Nuestro equipo está formado por operadores de red team, analistas de malware e investigadores que trabajan en entornos donde el fallo no es una opción. Desarrollamos y aseguramos software crítico para que sea seguro desde el primer commit y resiliente frente a escenarios adversariales reales.",
+      p1: "BruteSec Labs es una firma de seguridad ofensiva especializada en simulación adversarial, inteligencia de amenazas y arquitectura de confianza cero. Integramos IA Pentesting y PTSaaS (Pentesting as a Service) para ofrecer pruebas de penetración continuas, automatizadas y adaptativas. Operamos antes, durante y después del ataque, asegurando sistemas desde su diseño y eliminando vulnerabilidades antes de que existan. Combinamos inteligencia artificial con expertos en red team para identificar, explotar y priorizar riesgos en tiempo real.",
+      p2: "Transformamos el pentesting tradicional en un proceso continuo, escalable e integrado en DevSecOps, asegurando software crítico desde el primer momento y preparándolo para escenarios adversariales reales.",
       ourTeam: "Nuestro Equipo",
       services: "Servicios",
       servicesList: [

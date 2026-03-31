@@ -735,7 +735,7 @@ const SOCIAL_LINKS = [
   { label: "X (Twitter)", href: "https://twitter.com" },
   { label: "LinkedIn", href: "https://linkedin.com" },
   { label: "GitHub", href: "https://github.com" },
-  { label: "Instagram", href: "https://instagram.com/bruteseclasb" },
+  { label: "Instagram", href: "https://www.instagram.com/bruteseclabs/" },
 ];
 
 function ContactPage() {
@@ -814,9 +814,13 @@ function ContactPage() {
             {t.contact.address}
           </p>
           <p style={{ fontSize: 14, color: "#444", margin: 0, lineHeight: 1.7 }}>
-            Poblado
+            CRA 29C #10C 125
             <br />
-            Medellín, Edificio SELECT
+            Edificio SELECT
+            <br />
+            Barrio Poblado
+            <br />
+            Medellín, Colombia
           </p>
 
           {/* Live clock */}
@@ -997,9 +1001,13 @@ function Footer() {
               {t.footer.address}
             </p>
             <p style={{ fontSize: 14, color: "rgba(255,255,255,0.55)", lineHeight: 1.8 }}>
-              Poblado
+              CRA 29C #10C 125
               <br />
-              Medellín, Edificio SELECT
+              Edificio SELECT
+              <br />
+              Barrio Poblado
+              <br />
+              Medellín, Colombia
             </p>
           </div>
 
