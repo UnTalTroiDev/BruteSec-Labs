@@ -249,6 +249,7 @@ function BottomNav({ page, setPage }) {
 const TITLE_CHARS = "BruteSec Labs".split("");
 
 function HomePage({ onDone }) {
+  const { t } = useLang();
   const [ready, setReady] = useState(false);
   const [leaving, setLeaving] = useState(false);
   const onDoneRef = useRef(onDone);
@@ -279,7 +280,7 @@ function HomePage({ onDone }) {
         transition: "opacity 0.4s ease",
       }}
     >
-      <BackgroundPaths title="BruteSec Labs" />
+      <BackgroundPaths title="BruteSec Labs" subtitle={t.home.subtitle} />
     </div>
   );
 }

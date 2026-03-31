@@ -60,7 +60,7 @@ function FloatingPaths({ position }) {
   );
 }
 
-export function BackgroundPaths({ title = "Background Paths" }) {
+export function BackgroundPaths({ title = "Background Paths", subtitle }) {
   const words = title.split(" ");
 
   return (
@@ -132,6 +132,24 @@ export function BackgroundPaths({ title = "Background Paths" }) {
             </span>
           ))}
         </h1>
+
+        {subtitle && (
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 1.2, ease: "easeOut" }}
+            style={{
+              marginTop: 20,
+              fontSize: "clamp(13px, 1.6vw, 18px)",
+              color: "rgba(255,255,255,0.45)",
+              letterSpacing: "0.04em",
+              fontWeight: 400,
+              fontFamily: "inherit",
+            }}
+          >
+            {subtitle}
+          </motion.p>
+        )}
       </motion.div>
     </div>
   );

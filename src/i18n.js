@@ -1,5 +1,8 @@
 export const translations = {
   en: {
+    home: {
+      subtitle: "AI attackers never sleep. Neither do we.",
+    },
     nav: {
       projects: "Projects",
       aboutUs: "About us",
@@ -69,6 +72,9 @@ export const translations = {
   },
 
   es: {
+    home: {
+      subtitle: "Los atacantes de IA nunca duermen, nosotros tampoco.",
+    },
     nav: {
       projects: "Proyectos",
       aboutUs: "Nosotros",
