@@ -219,48 +219,75 @@ function ProjectCard({ project }) {
   );
 }
 
-const METHODOLOGY = [
-  { label: "PTES",        desc: "Penetration Testing Execution Standard" },
-  { label: "OWASP",       desc: "Top 10 & ASVS" },
-  { label: "MITRE ATT&CK", desc: "Adversarial Tactics & Techniques" },
-  { label: "TIBER-EU",    desc: "Threat Intelligence-Based Ethical Red Teaming" },
-  { label: "NIST CSF",    desc: "Cybersecurity Framework" },
+/**
+ * CLIENTS — agrega aquí los logos reales cuando estén disponibles.
+ * Cada entrada puede ser:
+ *   { name: "Acme Corp", logo: "/logos/acme.svg" }   ← con imagen
+ *   { name: "Acme Corp" }                             ← solo texto (placeholder)
+ */
+const CLIENTS = [
+  { name: "Client A" },
+  { name: "Client B" },
+  { name: "Client C" },
+  { name: "Client D" },
+  { name: "Client E" },
+  { name: "Client F" },
 ];
 
-function MethodologyStrip() {
+// Duplicamos para llenar el marquee sin gaps
+const MARQUEE_ITEMS = [...CLIENTS, ...CLIENTS];
+
+function ClientsCarousel() {
   const { t } = useLang();
   return (
-    <div style={{ marginTop: 80, paddingTop: 40, borderTop: "1px solid #e8e8e8" }}>
+    <div style={{ marginTop: 80 }}>
       <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#bbb", marginBottom: 28 }}>
         {t.projects.trustedBy}
       </p>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 24 }}>
-        {METHODOLOGY.map(({ label, desc }) => (
-          <div
-            key={label}
-            title={desc}
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              border: "1px solid #e0e0e0",
-              borderRadius: 6,
-              padding: "8px 16px",
-              fontSize: 13,
-              fontWeight: 600,
-              color: "#333",
-              background: "#fafafa",
-              cursor: "default",
-            }}
-          >
-            {label}
-            <span style={{ fontSize: 11, fontWeight: 400, color: "#999" }}>{desc}</span>
-          </div>
-        ))}
+      <div
+        aria-hidden="true"
+        style={{
+          maskImage: "linear-gradient(to right, transparent, #fff 10%, #fff 90%, transparent)",
+          WebkitMaskImage: "linear-gradient(to right, transparent, #fff 10%, #fff 90%, transparent)",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          className="clients-track"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 56,
+            width: "max-content",
+            animation: "marquee 28s linear infinite",
+          }}
+        >
+          {MARQUEE_ITEMS.map((client, i) => (
+            <div
+              key={i}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: 28,
+                flexShrink: 0,
+              }}
+            >
+              {client.logo ? (
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  style={{ height: "100%", width: "auto", objectFit: "contain", opacity: 0.35, filter: "grayscale(1)" }}
+                />
+              ) : (
+                <span style={{ fontSize: 13, fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: "#ccc" }}>
+                  {client.name}
+                </span>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
-      <p style={{ fontSize: 13, color: "#aaa", fontStyle: "italic" }}>
-        {t.projects.referencesAvailable}
-      </p>
     </div>
   );
 }
@@ -341,7 +368,7 @@ export function ProjectsPage() {
         ))}
       </div>
 
-      <MethodologyStrip />
+      <ClientsCarousel />
     </div>
   );
 }
