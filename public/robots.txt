@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bruteseclabs.io/sitemap.xml
