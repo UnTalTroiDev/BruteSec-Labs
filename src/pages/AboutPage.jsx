@@ -91,6 +91,31 @@ function AboutFeatureCards() {
           )
         )}
       </div>
+
+      {/* CTA post-bento */}
+      <div style={{ marginTop: 40, display: "flex", justifyContent: "center" }}>
+        <a
+          href="mailto:hello@bruteseclabs.io"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+            background: "#111",
+            color: "#fff",
+            padding: "14px 28px",
+            borderRadius: 999,
+            fontSize: 14,
+            fontWeight: 500,
+            textDecoration: "none",
+            letterSpacing: "0.01em",
+            transition: "opacity 0.2s",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
+          onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+        >
+          {t.about.bentoCta}
+        </a>
+      </div>
     </div>
   );
 }
@@ -140,20 +165,33 @@ export function AboutPage() {
           {TEAM.map((member) => (
             <div
               key={member.name}
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                padding: "18px 0",
-                borderBottom: "1px solid #e8e8e8",
-              }}
+              style={{ padding: "18px 0", borderBottom: "1px solid #e8e8e8" }}
             >
-              <span style={{ fontSize: 16, fontFamily: "'Georgia', 'Times New Roman', serif", fontWeight: 400 }}>
-                {member.name}
-              </span>
-              <span style={{ fontSize: 13, color: "#888" }}>
-                {t.about.roles[member.role] ?? member.role}
-              </span>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 4 }}>
+                <span style={{ fontSize: 16, fontFamily: "'Georgia', 'Times New Roman', serif", fontWeight: 400 }}>
+                  {member.name}
+                </span>
+                <span style={{ fontSize: 13, color: "#888" }}>
+                  {t.about.roles[member.role] ?? member.role}
+                </span>
+              </div>
+              {member.bio && (
+                <p style={{ fontSize: 12, color: "#aaa", margin: "0 0 4px", lineHeight: 1.5 }}>
+                  {member.bio}
+                </p>
+              )}
+              {member.certs && member.certs.length > 0 && (
+                <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                  {member.certs.map((cert) => (
+                    <span
+                      key={cert}
+                      style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.08em", color: "#666", background: "#f0f0f0", padding: "2px 8px", borderRadius: 999 }}
+                    >
+                      {cert}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
 
@@ -162,10 +200,13 @@ export function AboutPage() {
           </p>
           {t.about.servicesList.map((s) => (
             <div
-              key={s}
-              style={{ padding: "14px 0", borderBottom: "1px solid #e8e8e8", fontSize: 15, color: "#222" }}
+              key={s.name}
+              style={{ padding: "14px 0", borderBottom: "1px solid #e8e8e8" }}
             >
-              {s}
+              <p style={{ fontSize: 15, color: "#222", margin: "0 0 4px", fontWeight: 500 }}>{s.name}</p>
+              {s.desc && (
+                <p style={{ fontSize: 12, color: "#888", margin: 0, lineHeight: 1.5 }}>{s.desc}</p>
+              )}
             </div>
           ))}
         </div>
