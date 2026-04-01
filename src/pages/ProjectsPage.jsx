@@ -2,7 +2,6 @@ import { useState } from "react";
 import { PROJECTS } from "@/data/projects";
 import { useLang } from "@/LangContext";
 import { useFadeIn, fadeStyle } from "@/hooks/useFadeIn";
-import { BruteSecLogo } from "@/components/shared/BruteSecLogo";
 
 const FILTER_KEYS = ["All", "Red Team", "Threat Intel", "Architecture"];
 
@@ -201,48 +200,48 @@ function ProjectCard({ project }) {
   );
 }
 
-/* ── ClientsCarousel — aria-hidden en duplicados (Task 6) ── */
-const LOGO_COPIES = Array.from({ length: 14 });
+const METHODOLOGY = [
+  { label: "PTES",        desc: "Penetration Testing Execution Standard" },
+  { label: "OWASP",       desc: "Top 10 & ASVS" },
+  { label: "MITRE ATT&CK", desc: "Adversarial Tactics & Techniques" },
+  { label: "TIBER-EU",    desc: "Threat Intelligence-Based Ethical Red Teaming" },
+  { label: "NIST CSF",    desc: "Cybersecurity Framework" },
+];
 
-function ClientsCarousel() {
+function MethodologyStrip() {
   const { t } = useLang();
   return (
-    <div style={{ marginTop: 80 }}>
-      <p
-        style={{
-          fontSize: 11,
-          fontWeight: 700,
-          letterSpacing: "0.12em",
-          textTransform: "uppercase",
-          color: "#bbb",
-          marginBottom: 28,
-        }}
-      >
+    <div style={{ marginTop: 80, paddingTop: 40, borderTop: "1px solid #e8e8e8" }}>
+      <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#bbb", marginBottom: 28 }}>
         {t.projects.trustedBy}
       </p>
-      <div
-        aria-hidden="true"
-        style={{
-          maskImage: "linear-gradient(to right, transparent, #fff 10%, #fff 90%, transparent)",
-          WebkitMaskImage: "linear-gradient(to right, transparent, #fff 10%, #fff 90%, transparent)",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          className="clients-track"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 48,
-            width: "max-content",
-            animation: "marquee 28s linear infinite",
-          }}
-        >
-          {LOGO_COPIES.map((_, i) => (
-            <BruteSecLogo key={i} height={28} color="#c8c8c8" />
-          ))}
-        </div>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 24 }}>
+        {METHODOLOGY.map(({ label, desc }) => (
+          <div
+            key={label}
+            title={desc}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              border: "1px solid #e0e0e0",
+              borderRadius: 6,
+              padding: "8px 16px",
+              fontSize: 13,
+              fontWeight: 600,
+              color: "#333",
+              background: "#fafafa",
+              cursor: "default",
+            }}
+          >
+            {label}
+            <span style={{ fontSize: 11, fontWeight: 400, color: "#999" }}>{desc}</span>
+          </div>
+        ))}
       </div>
+      <p style={{ fontSize: 13, color: "#aaa", fontStyle: "italic" }}>
+        {t.projects.referencesAvailable}
+      </p>
     </div>
   );
 }
@@ -323,7 +322,7 @@ export function ProjectsPage() {
         ))}
       </div>
 
-      <ClientsCarousel />
+      <MethodologyStrip />
     </div>
   );
 }

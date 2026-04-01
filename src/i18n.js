@@ -23,6 +23,7 @@ export const translations = {
       },
       viewProject: "View project →",
       trustedBy: "Trusted by",
+      referencesAvailable: "Client references available under NDA upon request.",
     },
     about: {
       heading: "We identify vulnerabilities before they become real threats.",
@@ -117,6 +118,7 @@ export const translations = {
       },
       viewProject: "Ver proyecto →",
       trustedBy: "Con la confianza de",
+      referencesAvailable: "Referencias de clientes disponibles bajo NDA bajo solicitud.",
     },
     about: {
       heading: "Identificamos vulnerabilidades antes de que se conviertan en amenazas reales.",
