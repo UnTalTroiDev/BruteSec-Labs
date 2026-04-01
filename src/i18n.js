@@ -4,6 +4,7 @@ export const translations = {
       subtitle: "AI ATTACKERS NEVER SLEEP. NEITHER DO WE.",
     },
     nav: {
+      home: "Home",
       projects: "Projects",
       aboutUs: "About us",
       contact: "Contact",
@@ -100,6 +101,7 @@ export const translations = {
       subtitle: "LOS ATACANTES DE IA NUNCA DUERMEN, NOSOTROS TAMPOCO.",
     },
     nav: {
+      home: "Inicio",
       projects: "Proyectos",
       aboutUs: "Nosotros",
       contact: "Contacto",

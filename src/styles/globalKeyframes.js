@@ -47,6 +47,10 @@ export const KEYFRAMES = `
   @media (max-width: 480px) {
     .footer-top-grid { grid-template-columns: 1fr !important; }
   }
+  /* Ensure focused elements are not obscured by fixed BottomNav (WCAG 2.4.11) */
+  :focus-visible {
+    scroll-margin-bottom: 100px;
+  }
   /* Skip link */
   .skip-link {
     position: absolute;
