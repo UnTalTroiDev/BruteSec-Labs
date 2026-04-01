@@ -29,7 +29,8 @@ export const translations = {
       p1: "BruteSec Labs is an offensive security firm specialized in adversarial simulation, threat intelligence, and zero-trust architecture. We integrate AI Pentesting and PTSaaS (Pentesting as a Service) to deliver continuous, automated, and adaptive penetration testing. We operate before, during, and after the attack, securing systems from their design and eliminating vulnerabilities before they exist. We combine artificial intelligence with red team experts to identify, exploit, and prioritize risks in real time.",
       p2: "We transform traditional pentesting into a continuous, scalable process integrated into DevSecOps, securing critical software from day one and preparing it for real adversarial scenarios.",
       differential: {
-        label: "DIFFERENTIAL",
+        heading: "Power. Speed. Control.",
+        sub: "Everything you need to protect, simulate, and scale.",
       },
       bento: {
         continuous: { title: "We don't audit once. We audit always.", desc: "PTSaaS delivers continuous, automated, and adaptive penetration testing integrated into your development cycle.", status: "Always On" },
@@ -110,7 +111,8 @@ export const translations = {
       p1: "BruteSec Labs es una firma de seguridad ofensiva especializada en simulación adversarial, inteligencia de amenazas y arquitectura de confianza cero. Integramos IA Pentesting y PTSaaS (Pentesting as a Service) para ofrecer pruebas de penetración continuas, automatizadas y adaptativas. Operamos antes, durante y después del ataque, asegurando sistemas desde su diseño y eliminando vulnerabilidades antes de que existan. Combinamos inteligencia artificial con expertos en red team para identificar, explotar y priorizar riesgos en tiempo real.",
       p2: "Transformamos el pentesting tradicional en un proceso continuo, escalable e integrado en DevSecOps, asegurando software crítico desde el primer momento y preparándolo para escenarios adversariales reales.",
       differential: {
-        label: "DIFERENCIAL",
+        heading: "Potencia. Velocidad. Control.",
+        sub: "Todo lo que necesitas para proteger, simular y escalar.",
       },
       bento: {
         continuous: { title: "No auditamos una vez. Auditamos siempre.", desc: "PTSaaS ofrece pruebas de penetración continuas, automatizadas y adaptativas integradas en tu ciclo de desarrollo.", status: "Siempre activo" },
