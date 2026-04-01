@@ -128,18 +128,24 @@ export function ContactPage() {
         </div>
       </div>
 
-      {/* Bottom strip */}
-      <div
+      {/* Bottom strip — CTA mailto */}
+      <a
+        href="mailto:hello@bruteseclabs.io"
         style={{
+          display: "flex",
+          alignItems: "center",
           marginTop: 80,
           borderRadius: 12,
           overflow: "hidden",
-          height: 240,
+          minHeight: 240,
           background: "linear-gradient(135deg, #0f0f1a 0%, #1a1a3e 50%, #0a0a0f 100%)",
-          display: "flex",
-          alignItems: "center",
           padding: "0 48px",
+          textDecoration: "none",
+          cursor: "pointer",
+          transition: "filter 0.25s ease",
         }}
+        onMouseEnter={(e) => (e.currentTarget.style.filter = "brightness(1.15)")}
+        onMouseLeave={(e) => (e.currentTarget.style.filter = "brightness(1)")}
       >
         <div>
           <p style={{ color: "rgba(255,255,255,0.4)", fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 12 }}>
@@ -149,7 +155,7 @@ export function ContactPage() {
             {t.contact.startConversation}
           </p>
         </div>
-      </div>
+      </a>
     </div>
   );
 }
