@@ -133,9 +133,8 @@ function ProjectCard({ project }) {
         transition: "transform 0.35s ease, box-shadow 0.35s ease",
         transform: highlighted ? "scale(1.015)" : "scale(1)",
         boxShadow: highlighted
-          ? `0 16px 48px rgba(0,0,0,0.5), 0 0 0 1px ${project.accent}33`
+          ? `0 16px 48px rgba(0,0,0,0.5), 0 0 0 2px ${project.accent}`
           : "0 2px 12px rgba(0,0,0,0.3)",
-        outline: "none",
       }}
     >
       {PatternSVG && PatternSVG(project.accent)}
