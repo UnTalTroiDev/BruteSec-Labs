@@ -23,6 +23,15 @@ export default {
       },
     },
   },
+  safelist: [
+    "group-hover:opacity-100",
+    "opacity-0",
+    "opacity-100",
+    "-translate-y-0.5",
+    "hover:-translate-y-0.5",
+    "md:col-span-2",
+    "col-span-1",
+  ],
   plugins: [],
 }
 

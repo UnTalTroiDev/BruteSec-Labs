@@ -30,9 +30,12 @@ export const translations = {
       p2: "We transform traditional pentesting into a continuous, scalable process integrated into DevSecOps, securing critical software from day one and preparing it for real adversarial scenarios.",
       differential: {
         label: "DIFFERENTIAL",
-        line1: "We don't audit once. We audit always.",
-        line2: "AI + offensive + automation",
-        line3: "to find flaws before the attack.",
+      },
+      bento: {
+        continuous: { title: "We don't audit once. We audit always.", desc: "PTSaaS delivers continuous, automated, and adaptive penetration testing integrated into your development cycle.", status: "Always On" },
+        ai: { title: "AI + Offensive + Automation", desc: "We combine artificial intelligence with red team experts to identify, exploit, and prioritize risks in real time.", status: "Active" },
+        devsecops: { title: "Secure from the first commit", desc: "We integrate security into DevSecOps pipelines to eliminate vulnerabilities before they exist in production." },
+        redteam: { title: "Specialists where failure is not an option", desc: "Red teamers, malware analysts and researchers with years of experience in high-stakes environments.", meta: "Red Team", status: "Expert" },
       },
       ourTeam: "Our Team",
       services: "Services",
@@ -108,9 +111,12 @@ export const translations = {
       p2: "Transformamos el pentesting tradicional en un proceso continuo, escalable e integrado en DevSecOps, asegurando software crítico desde el primer momento y preparándolo para escenarios adversariales reales.",
       differential: {
         label: "DIFERENCIAL",
-        line1: "No auditamos una vez. Auditamos siempre.",
-        line2: "IA + ofensiva + automatización",
-        line3: "para encontrar fallos antes del ataque.",
+      },
+      bento: {
+        continuous: { title: "No auditamos una vez. Auditamos siempre.", desc: "PTSaaS ofrece pruebas de penetración continuas, automatizadas y adaptativas integradas en tu ciclo de desarrollo.", status: "Siempre activo" },
+        ai: { title: "IA + Ofensiva + Automatización", desc: "Combinamos inteligencia artificial con expertos en red team para identificar, explotar y priorizar riesgos en tiempo real.", status: "Activo" },
+        devsecops: { title: "Seguro desde el primer commit", desc: "Integramos seguridad en pipelines DevSecOps para eliminar vulnerabilidades antes de que existan en producción." },
+        redteam: { title: "Especialistas donde el fallo no es una opción", desc: "Operadores de red team, analistas de malware e investigadores con años de experiencia en entornos de alto riesgo.", meta: "Red Team", status: "Experto" },
       },
       ourTeam: "Nuestro Equipo",
       services: "Servicios",

@@ -3,7 +3,6 @@ import { PROJECTS } from "./data/projects";
 import { TEAM } from "./data/team";
 import { BackgroundPaths } from "@/components/ui/background-paths";
 import { LangProvider, useLang } from "./LangContext";
-import { Features } from "@/components/blocks/features-8";
 
 
 /* ─────────────────────────────────────────────
@@ -726,10 +725,6 @@ function AboutPage() {
         </div>
       </div>
 
-      {/* ── Differential block ── */}
-      <div style={{ margin: "72px -48px 0" }}>
-        <Features />
-      </div>
     </div>
   );
 }
