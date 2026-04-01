@@ -89,7 +89,7 @@ function AppInner() {
           transition: "background 0.3s ease",
         }}
       >
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "24px 48px 0", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "24px 48px 20px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <button
             onClick={() => navigate("Home")}
             aria-label="Go to home"

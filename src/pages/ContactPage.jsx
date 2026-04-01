@@ -238,17 +238,7 @@ export function ContactPage() {
                 href={href}
                 target="_blank"
                 rel="noreferrer"
-                style={{
-                  display: "block",
-                  fontSize: 14,
-                  color: "#444",
-                  lineHeight: 2,
-                  textDecoration: "underline",
-                  textDecorationColor: "transparent",
-                  transition: "text-decoration-color 0.2s",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.textDecorationColor = "#444")}
-                onMouseLeave={(e) => (e.currentTarget.style.textDecorationColor = "transparent")}
+                className="block text-sm text-[#444] leading-loose underline decoration-transparent hover:decoration-[#444] focus-visible:decoration-[#444] transition-[text-decoration-color] duration-200"
               >
                 {label}
               </a>

@@ -77,7 +77,7 @@ function AboutFeatureCards() {
       >
         {features.map((feature, i) =>
           shouldReduceMotion ? (
-            <FeatureCard key={i} feature={feature} />
+            <FeatureCard key={i} feature={feature} index={i} />
           ) : (
             <motion.div
               key={i}
@@ -86,7 +86,7 @@ function AboutFeatureCards() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 + 0.2, duration: 0.5, ease: "easeOut" }}
             >
-              <FeatureCard feature={feature} />
+              <FeatureCard feature={feature} index={i} />
             </motion.div>
           )
         )}

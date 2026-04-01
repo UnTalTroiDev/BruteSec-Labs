@@ -112,7 +112,17 @@ export function Footer() {
           }}
         >
           <span>© {new Date().getFullYear()} BruteSec Labs. {t.footer.allRights}</span>
-          <span>{t.footer.legal}</span>
+          <span>
+            <a href="/privacy" style={{ color: "inherit", textDecoration: "none", transition: "color 0.2s" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.6)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "inherit")}
+            >Privacy Policy</a>
+            {" · "}
+            <a href="/terms" style={{ color: "inherit", textDecoration: "none", transition: "color 0.2s" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.6)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "inherit")}
+            >Terms of Service</a>
+          </span>
         </div>
 
       </div>

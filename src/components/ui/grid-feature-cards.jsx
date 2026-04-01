@@ -1,9 +1,21 @@
 import { cn } from '@/lib/utils';
-import React from 'react';
+import React, { useMemo } from 'react';
 
+// Deterministic pattern based on a seed — no layout shift on re-render
+function seededPattern(seed, length = 5) {
+    let s = seed;
+    const rand = () => {
+        s = (s * 1664525 + 1013904223) & 0xffffffff;
+        return (s >>> 0) / 0xffffffff;
+    };
+    return Array.from({ length }, () => [
+        Math.floor(rand() * 4) + 7,
+        Math.floor(rand() * 6) + 1,
+    ]);
+}
 
-export function FeatureCard({ feature, className, ...props }) {
-    const p = genRandomPattern();
+export function FeatureCard({ feature, index = 0, className, ...props }) {
+    const p = useMemo(() => seededPattern(index + 1), [index]);
 
     return (
         <div className={cn('relative overflow-hidden p-6', className)} {...props}>
@@ -46,11 +58,4 @@ function GridPattern({ width, height, x, y, squares, ...props }) {
             )}
         </svg>
     );
-}
-
-function genRandomPattern(length = 5) {
-    return Array.from({ length }, () => [
-        Math.floor(Math.random() * 4) + 7,
-        Math.floor(Math.random() * 6) + 1,
-    ]);
 }
