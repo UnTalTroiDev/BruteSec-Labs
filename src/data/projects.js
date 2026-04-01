@@ -8,6 +8,8 @@ export const PROJECTS = [
     light: false,
     accent: "#ff3b30",
     pattern: "terminal",
+    description: "Internal C2 orchestration platform for adversarial simulation campaigns. Centralizes operator tasks, payload delivery tracking, and post-exploitation reporting across multi-stage engagements.",
+    year: "2024",
   },
   {
     id: 2,
@@ -18,6 +20,8 @@ export const PROJECTS = [
     light: false,
     accent: "#00c2ff",
     pattern: "network",
+    description: "Aggregation and correlation platform for IOCs, TTPs, and threat actor profiles mapped to MITRE ATT&CK. Integrated OSINT feeds with automated alerting for sector-specific campaigns.",
+    year: "2024",
   },
   {
     id: 3,
@@ -28,6 +32,8 @@ export const PROJECTS = [
     light: false,
     accent: "#a855f7",
     pattern: "grid",
+    description: "Purple team toolset for validating detection coverage against SIEM and EDR. Executes atomic tests mapped to ATT&CK and measures detection latency and alert fidelity in real environments.",
+    year: "2023",
   },
   {
     id: 4,
@@ -38,6 +44,8 @@ export const PROJECTS = [
     light: false,
     accent: "#4ade80",
     pattern: "hook",
+    description: "Spear-phishing simulation infrastructure with credential harvesting analytics. Measures organizational resilience, tracks click-through rates by department, and feeds into security awareness training.",
+    year: "2023",
   },
   {
     id: 5,
@@ -48,6 +56,8 @@ export const PROJECTS = [
     light: false,
     accent: "#fb923c",
     pattern: "radar",
+    description: "Comprehensive attack surface assessment for a FinTech client covering API endpoints, cloud misconfiguration, and supply chain exposure. Resulted in 47 remediated findings, 3 critical.",
+    year: "2024",
   },
   {
     id: 6,
@@ -58,5 +68,7 @@ export const PROJECTS = [
     light: false,
     accent: "#60a5fa",
     pattern: "shield",
+    description: "Design and implementation of a zero-trust identity architecture for a 2,000-seat enterprise. Includes ZTNA rollout, conditional access policies, and privileged access workstation (PAW) blueprint.",
+    year: "2025",
   },
 ];

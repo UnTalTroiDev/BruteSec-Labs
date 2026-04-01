@@ -10,7 +10,7 @@ export const translations = {
       contact: "Contact",
     },
     projects: {
-      heading: "Compelling security research sits at the core of everything we do",
+      heading: "Selected work & security research",
       filters: {
         All: "All",
         "Red Team": "Red Team",
@@ -107,7 +107,7 @@ export const translations = {
       contact: "Contacto",
     },
     projects: {
-      heading: "La investigación en seguridad es el núcleo de todo lo que hacemos",
+      heading: "Trabajo seleccionado e investigación en seguridad",
       filters: {
         All: "Todo",
         "Red Team": "Red Team",

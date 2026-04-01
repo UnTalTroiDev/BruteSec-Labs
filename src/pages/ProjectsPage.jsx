@@ -123,7 +123,7 @@ function ProjectCard({ project }) {
         background: project.color,
         borderRadius: 10,
         overflow: "hidden",
-        height: 300,
+        minHeight: 300,
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-end",
@@ -168,11 +168,11 @@ function ProjectCard({ project }) {
       <h3
         style={{
           position: "relative",
-          fontSize: 22,
+          fontSize: 20,
           fontWeight: 400,
           fontFamily: "'Georgia', 'Times New Roman', serif",
           color: "#fff",
-          margin: 0,
+          margin: "0 0 8px",
           letterSpacing: "-0.01em",
           lineHeight: 1.2,
         }}
@@ -180,21 +180,41 @@ function ProjectCard({ project }) {
         {project.title}
       </h3>
 
-      <span
-        aria-hidden={!highlighted}
-        style={{
-          position: "relative",
-          fontSize: 13,
-          color: project.accent,
-          marginTop: 8,
-          opacity: highlighted ? 1 : 0,
-          transform: highlighted ? "translateX(0)" : "translateX(-8px)",
-          transition: "opacity 0.25s ease, transform 0.25s ease",
-          display: "block",
-        }}
-      >
-        {t.projects.viewProject}
-      </span>
+      {project.description && (
+        <p
+          style={{
+            position: "relative",
+            fontSize: 12,
+            color: "rgba(255,255,255,0.55)",
+            margin: 0,
+            lineHeight: 1.5,
+            display: highlighted ? "block" : "none",
+          }}
+        >
+          {project.description}
+        </p>
+      )}
+
+      <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 10 }}>
+        {project.year && (
+          <span style={{ fontSize: 11, color: "rgba(255,255,255,0.3)", letterSpacing: "0.06em" }}>
+            {project.year}
+          </span>
+        )}
+        <span
+          aria-hidden={!highlighted}
+          style={{
+            fontSize: 13,
+            color: project.accent,
+            opacity: highlighted ? 1 : 0,
+            transform: highlighted ? "translateX(0)" : "translateX(-8px)",
+            transition: "opacity 0.25s ease, transform 0.25s ease",
+            marginLeft: "auto",
+          }}
+        >
+          {t.projects.viewProject}
+        </span>
+      </div>
     </article>
   );
 }
