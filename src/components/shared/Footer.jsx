@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useLang } from "@/LangContext";
 import { BruteSecLogo } from "@/components/shared/BruteSecLogo";
 
@@ -11,15 +10,6 @@ const SOCIAL_LINKS = [
 
 export function Footer() {
   const { t } = useLang();
-  const [email, setEmail] = useState("");
-  const [sent, setSent] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!email) return;
-    setSent(true);
-    setEmail("");
-  };
 
   return (
     <footer
@@ -96,7 +86,7 @@ export function Footer() {
             </nav>
           </div>
 
-          {/* Newsletter */}
+          {/* Newsletter — coming soon */}
           <div>
             <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)", marginBottom: 16 }}>
               {t.footer.advisories}
@@ -104,56 +94,9 @@ export function Footer() {
             <p style={{ fontSize: 14, color: "rgba(255,255,255,0.45)", lineHeight: 1.7, marginBottom: 20 }}>
               {t.footer.newsletterText}
             </p>
-
-            {sent ? (
-              <p role="status" style={{ fontSize: 14, color: "#4ade80" }}>
-                {t.footer.subscribed}
-              </p>
-            ) : (
-              <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                <label htmlFor="footer-email" className="sr-only">
-                  Email address
-                </label>
-                <input
-                  id="footer-email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="your@email.com"
-                  autoComplete="email"
-                  style={{
-                    background: "rgba(255,255,255,0.06)",
-                    border: "1px solid rgba(255,255,255,0.12)",
-                    borderRadius: 6,
-                    padding: "10px 14px",
-                    fontSize: 14,
-                    color: "#fff",
-                    outline: "none",
-                    fontFamily: "inherit",
-                  }}
-                />
-                <button
-                  type="submit"
-                  style={{
-                    background: "#fff",
-                    color: "#0a0a0a",
-                    border: "none",
-                    borderRadius: 6,
-                    padding: "10px 14px",
-                    fontSize: 13,
-                    fontWeight: 600,
-                    cursor: "pointer",
-                    fontFamily: "inherit",
-                    letterSpacing: "0.02em",
-                    transition: "opacity 0.2s",
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
-                  onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-                >
-                  {t.footer.subscribe}
-                </button>
-              </form>
-            )}
+            <p style={{ fontSize: 13, color: "rgba(255,255,255,0.25)", fontStyle: "italic" }}>
+              {t.footer.newsletterComingSoon}
+            </p>
           </div>
         </div>
 
