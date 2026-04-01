@@ -73,7 +73,7 @@ export function Footer() {
               {t.footer.contact}
             </p>
             <address style={{ fontStyle: "normal", fontSize: 14, color: "rgba(255,255,255,0.55)", lineHeight: 1.8, marginBottom: 24 }}>
-              <a href="mailto:brutek-sec@proton.me" style={{ color: "inherit", textDecoration: "none" }}>brutek-sec@proton.me</a>
+              <a href="mailto:hello@bruteseclabs.io" style={{ color: "inherit", textDecoration: "none" }}>hello@bruteseclabs.io</a>
             </address>
 
             <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)", marginBottom: 12 }}>

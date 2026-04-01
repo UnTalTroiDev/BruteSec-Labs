@@ -2,12 +2,139 @@ import { useState, useEffect } from "react";
 import { useLang } from "@/LangContext";
 import { useFadeIn, fadeStyle } from "@/hooks/useFadeIn";
 
+const CONTACT_EMAIL = "hello@bruteseclabs.io";
+
 const SOCIAL_LINKS = [
   { label: "X (Twitter)", href: "https://twitter.com" },
   { label: "LinkedIn",    href: "https://linkedin.com" },
   { label: "GitHub",      href: "https://github.com" },
   { label: "Instagram",   href: "https://www.instagram.com/bruteseclabs/" },
 ];
+
+const inputStyle = {
+  width: "100%",
+  background: "#f8f8f8",
+  border: "1px solid #e0e0e0",
+  borderRadius: 6,
+  padding: "10px 14px",
+  fontSize: 14,
+  color: "#111",
+  outline: "none",
+  fontFamily: "inherit",
+  transition: "border-color 0.2s",
+  boxSizing: "border-box",
+};
+
+function ContactForm() {
+  const { t } = useLang();
+  const tf = t.contact.form;
+  const [form, setForm] = useState({ name: "", company: "", email: "", message: "" });
+  const [status, setStatus] = useState("idle"); // idle | sending | success | error
+
+  const handleChange = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("sending");
+    // Placeholder: replace with real endpoint (e.g. Resend, Formspree, etc.)
+    try {
+      await new Promise((r) => setTimeout(r, 800)); // simulate network
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  if (status === "success") {
+    return (
+      <p role="status" style={{ fontSize: 14, color: "#16a34a", padding: "12px 0", lineHeight: 1.6 }}>
+        {tf.success}
+      </p>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 32 }}>
+      <h2 style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.01em", marginBottom: 4 }}>
+        {tf.heading}
+      </h2>
+
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+        <div>
+          <label htmlFor="cf-name" style={{ display: "block", fontSize: 12, color: "#666", marginBottom: 4 }}>
+            {tf.name}
+          </label>
+          <input id="cf-name" name="name" type="text" required autoComplete="name"
+            value={form.name} onChange={handleChange} style={inputStyle}
+            onFocus={(e) => (e.target.style.borderColor = "#111")}
+            onBlur={(e) => (e.target.style.borderColor = "#e0e0e0")}
+          />
+        </div>
+        <div>
+          <label htmlFor="cf-company" style={{ display: "block", fontSize: 12, color: "#666", marginBottom: 4 }}>
+            {tf.company}
+          </label>
+          <input id="cf-company" name="company" type="text" autoComplete="organization"
+            value={form.company} onChange={handleChange} style={inputStyle}
+            onFocus={(e) => (e.target.style.borderColor = "#111")}
+            onBlur={(e) => (e.target.style.borderColor = "#e0e0e0")}
+          />
+        </div>
+      </div>
+
+      <div>
+        <label htmlFor="cf-email" style={{ display: "block", fontSize: 12, color: "#666", marginBottom: 4 }}>
+          {tf.email}
+        </label>
+        <input id="cf-email" name="email" type="email" required autoComplete="email"
+          value={form.email} onChange={handleChange} style={inputStyle}
+          onFocus={(e) => (e.target.style.borderColor = "#111")}
+          onBlur={(e) => (e.target.style.borderColor = "#e0e0e0")}
+        />
+      </div>
+
+      <div>
+        <label htmlFor="cf-message" style={{ display: "block", fontSize: 12, color: "#666", marginBottom: 4 }}>
+          {tf.message}
+        </label>
+        <textarea
+          id="cf-message" name="message" required rows={4}
+          placeholder={tf.messagePlaceholder}
+          value={form.message} onChange={handleChange}
+          style={{ ...inputStyle, resize: "vertical", lineHeight: 1.6 }}
+          onFocus={(e) => (e.target.style.borderColor = "#111")}
+          onBlur={(e) => (e.target.style.borderColor = "#e0e0e0")}
+        />
+      </div>
+
+      {status === "error" && (
+        <p role="alert" style={{ fontSize: 13, color: "#dc2626" }}>{tf.error}</p>
+      )}
+
+      <button
+        type="submit"
+        disabled={status === "sending"}
+        style={{
+          background: "#111",
+          color: "#fff",
+          border: "none",
+          borderRadius: 6,
+          padding: "11px 20px",
+          fontSize: 13,
+          fontWeight: 600,
+          cursor: status === "sending" ? "wait" : "pointer",
+          fontFamily: "inherit",
+          letterSpacing: "0.02em",
+          alignSelf: "flex-start",
+          transition: "opacity 0.2s",
+          opacity: status === "sending" ? 0.6 : 1,
+        }}
+      >
+        {status === "sending" ? tf.sending : tf.submit}
+      </button>
+    </form>
+  );
+}
 
 export function ContactPage() {
   const { t } = useLang();
@@ -17,10 +144,11 @@ export function ContactPage() {
 
   useEffect(() => {
     const tick = () => {
-      const now = new Date();
+      // Show Medellín time (COT = UTC-5)
+      const now = new Date(new Date().toLocaleString("en-US", { timeZone: "America/Bogota" }));
       const h = String(now.getHours()).padStart(2, "0");
       const m = String(now.getMinutes()).padStart(2, "0");
-      setTime(`${h}:${m}`);
+      setTime(`${h}:${m} COT`);
       setIsOpen(now.getHours() >= 9 && now.getHours() < 18);
     };
     tick();
@@ -40,19 +168,22 @@ export function ContactPage() {
           alignItems: "start",
         }}
       >
-        {/* Left: headline */}
-        <h1
-          style={{
-            fontSize: "clamp(30px, 5vw, 60px)",
-            fontWeight: 400,
-            lineHeight: 1.1,
-            fontFamily: "'Georgia', 'Times New Roman', serif",
-            letterSpacing: "-0.02em",
-            margin: 0,
-          }}
-        >
-          {t.contact.heading}
-        </h1>
+        {/* Left: headline + form */}
+        <div>
+          <h1
+            style={{
+              fontSize: "clamp(30px, 5vw, 60px)",
+              fontWeight: 400,
+              lineHeight: 1.1,
+              fontFamily: "'Georgia', 'Times New Roman', serif",
+              letterSpacing: "-0.02em",
+              margin: 0,
+            }}
+          >
+            {t.contact.heading}
+          </h1>
+          <ContactForm />
+        </div>
 
         {/* Middle: general enquiries */}
         <div>
@@ -60,8 +191,8 @@ export function ContactPage() {
             {t.contact.generalEnquiries}
           </p>
           <address style={{ fontStyle: "normal", fontSize: 14, color: "#444", margin: 0, lineHeight: 1.7 }}>
-            <a href="mailto:hello@bruteseclabs.io" style={{ color: "inherit", textDecoration: "none" }}>
-              hello@bruteseclabs.io
+            <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: "inherit", textDecoration: "none" }}>
+              {CONTACT_EMAIL}
             </a>
           </address>
 
@@ -75,10 +206,8 @@ export function ContactPage() {
             Medellín, Colombia
           </address>
 
-          {/* Live clock */}
-          <div
-            style={{ marginTop: 28, display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: "#666" }}
-          >
+          {/* Live clock — COT */}
+          <div style={{ marginTop: 28, display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: "#666" }}>
             <span
               aria-hidden="true"
               style={{
@@ -130,7 +259,7 @@ export function ContactPage() {
 
       {/* Bottom strip — CTA mailto */}
       <a
-        href="mailto:hello@bruteseclabs.io"
+        href={`mailto:${CONTACT_EMAIL}`}
         style={{
           display: "flex",
           alignItems: "center",

@@ -63,7 +63,19 @@ export const translations = {
       open: "we're open",
       closed: "we're closed",
       readyWhen: "Ready when you are",
-      startConversation: "Start a conversation →",
+      startConversation: "Send us an email →",
+      form: {
+        heading: "Send us a message",
+        name: "Full name",
+        company: "Company",
+        email: "Work email",
+        message: "How can we help?",
+        messagePlaceholder: "Describe the scope of your project, industry, and any relevant context.",
+        submit: "Send message",
+        sending: "Sending…",
+        success: "Message sent — we'll get back to you within 24 hours.",
+        error: "Something went wrong. Please email us directly at hello@bruteseclabs.io",
+      },
     },
     footer: {
       tagline:
@@ -145,7 +157,19 @@ export const translations = {
       open: "estamos abiertos",
       closed: "estamos cerrados",
       readyWhen: "Listos cuando tú lo estés",
-      startConversation: "Inicia una conversación →",
+      startConversation: "Escríbenos →",
+      form: {
+        heading: "Envíanos un mensaje",
+        name: "Nombre completo",
+        company: "Empresa",
+        email: "Correo corporativo",
+        message: "¿En qué podemos ayudarte?",
+        messagePlaceholder: "Describe el alcance del proyecto, la industria y cualquier contexto relevante.",
+        submit: "Enviar mensaje",
+        sending: "Enviando…",
+        success: "Mensaje enviado — te respondemos en menos de 24 horas.",
+        error: "Algo salió mal. Escríbenos directamente a hello@bruteseclabs.io",
+      },
     },
     footer: {
       tagline:
