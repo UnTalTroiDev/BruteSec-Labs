@@ -77,7 +77,7 @@ export const translations = {
         submit: "Send message",
         sending: "Sending…",
         success: "Message sent — we'll get back to you within 24 hours.",
-        error: "Something went wrong. Please email us directly at hello@bruteseclabs.io",
+        error: "Something went wrong. Please email us directly at brutek-sec@proton.me",
       },
     },
     footer: {
@@ -175,7 +175,7 @@ export const translations = {
         submit: "Enviar mensaje",
         sending: "Enviando…",
         success: "Mensaje enviado — te respondemos en menos de 24 horas.",
-        error: "Algo salió mal. Escríbenos directamente a hello@bruteseclabs.io",
+        error: "Algo salió mal. Escríbenos directamente a brutek-sec@proton.me",
       },
     },
     footer: {

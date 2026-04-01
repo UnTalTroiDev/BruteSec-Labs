@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useLang } from "@/LangContext";
 import { useFadeIn, fadeStyle } from "@/hooks/useFadeIn";
 
-const CONTACT_EMAIL = "hello@bruteseclabs.io";
+const CONTACT_EMAIL = "brutek-sec@proton.me";
 
 const SOCIAL_LINKS = [
   { label: "X (Twitter)", href: "https://twitter.com" },

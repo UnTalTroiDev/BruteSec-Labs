@@ -95,7 +95,7 @@ function AboutFeatureCards() {
       {/* CTA post-bento */}
       <div style={{ marginTop: 40, display: "flex", justifyContent: "center" }}>
         <a
-          href="mailto:hello@bruteseclabs.io"
+          href="mailto:brutek-sec@proton.me"
           style={{
             display: "inline-flex",
             alignItems: "center",
