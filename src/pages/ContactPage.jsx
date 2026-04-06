@@ -36,10 +36,17 @@ function ContactForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("sending");
-    // Placeholder: replace with real endpoint (e.g. Resend, Formspree, etc.)
     try {
-      await new Promise((r) => setTimeout(r, 800)); // simulate network
-      setStatus("success");
+      const res = await fetch("https://formspree.io/f/xdapyror", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setStatus("success");
+      } else {
+        setStatus("error");
+      }
     } catch {
       setStatus("error");
     }
