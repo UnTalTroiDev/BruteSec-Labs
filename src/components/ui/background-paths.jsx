@@ -81,7 +81,7 @@ function FloatingPaths({ position }) {
   );
 }
 
-export function BackgroundPaths({ title = "Background Paths", subtitle }) {
+export function BackgroundPaths({ title = "Background Paths", tagline, subtitle }) {
   const shouldReduce = useReducedMotion();
   const words = title.split(" ");
 
@@ -166,6 +166,45 @@ export function BackgroundPaths({ title = "Background Paths", subtitle }) {
             </span>
           ))}
         </h1>
+
+        {tagline && (
+          shouldReduce ? (
+            <p
+              style={{
+                marginTop: 16,
+                fontSize: "clamp(18px, 3.5vw, 52px)",
+                fontFamily: "'Georgia', 'Times New Roman', serif",
+                fontWeight: 400,
+                letterSpacing: "-0.02em",
+                background: "linear-gradient(to right, #ffffff, rgba(255,255,255,0.6))",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              {tagline}
+            </p>
+          ) : (
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 1.2, ease: "easeOut" }}
+              style={{
+                marginTop: 16,
+                fontSize: "clamp(18px, 3.5vw, 52px)",
+                fontFamily: "'Georgia', 'Times New Roman', serif",
+                fontWeight: 400,
+                letterSpacing: "-0.02em",
+                background: "linear-gradient(to right, #ffffff, rgba(255,255,255,0.6))",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              {tagline}
+            </motion.p>
+          )
+        )}
 
         {subtitle && (
           shouldReduce ? (

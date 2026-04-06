@@ -35,7 +35,7 @@ export function HomePage({ onDone }) {
         transition: "opacity 0.4s ease",
       }}
     >
-      <BackgroundPaths title="BruteSec Labs" subtitle={t.home.subtitle} />
+      <BackgroundPaths title="BruteSec Labs" tagline={t.home.tagline} subtitle={t.home.subtitle} />
 
       {/* Skip intro button */}
       <button

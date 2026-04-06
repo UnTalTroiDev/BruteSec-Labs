@@ -1,6 +1,7 @@
 export const translations = {
   en: {
     home: {
+      tagline: "Offensive Security Consultancy",
       subtitle: "AI ATTACKERS NEVER SLEEP. NEITHER DO WE.",
     },
     nav: {
@@ -99,6 +100,7 @@ export const translations = {
 
   es: {
     home: {
+      tagline: "Consultoría de Seguridad Ofensiva",
       subtitle: "LOS ATACANTES DE IA NUNCA DUERMEN, NOSOTROS TAMPOCO.",
     },
     nav: {
