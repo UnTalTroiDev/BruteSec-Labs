@@ -1,12 +1,12 @@
 export const TEAM = [
   {
-    name: "Alex Mercer",
+    name: "Alejandro Morales",
     role: "Founder & Lead Pentester",
     certs: ["OSCP", "CRTO"],
     bio: "10+ years in offensive security. Former red teamer at national CERT. Specializes in APT simulation and adversarial AI.",
   },
   {
-    name: "Sonia Reyes",
+    name: "Jair Alvarez",
     role: "Threat Intelligence",
     certs: ["GCTI", "CTI-Certified"],
     bio: "Threat actor tracking and campaign attribution. Deep expertise in LatAm and financial sector threat landscape.",
