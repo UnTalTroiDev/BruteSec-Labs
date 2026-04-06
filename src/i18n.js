@@ -53,6 +53,7 @@ export const translations = {
       bentoCta: "Discuss your security needs →",
       roles: {
         "Founder & Lead Pentester": "Founder & Lead Pentester",
+        "Co-founder & BDM": "Co-founder & BDM",
         "Threat Intelligence": "Threat Intelligence",
         "Red Team Operator": "Red Team Operator",
         "Security Research": "Security Research",
@@ -152,6 +153,7 @@ export const translations = {
       bentoCta: "Habla con nosotros sobre tu seguridad →",
       roles: {
         "Founder & Lead Pentester": "Fundador y Pentester Principal",
+        "Co-founder & BDM": "Co-fundador y BDM",
         "Threat Intelligence": "Inteligencia de Amenazas",
         "Red Team Operator": "Operador de Red Team",
         "Security Research": "Investigación de Seguridad",

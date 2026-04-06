@@ -121,7 +121,7 @@ function AboutFeatureCards() {
 }
 
 export function AboutPage() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const visible = useFadeIn();
 
   return (
@@ -177,7 +177,7 @@ export function AboutPage() {
               </div>
               {member.bio && (
                 <p style={{ fontSize: 12, color: "#aaa", margin: "0 0 4px", lineHeight: 1.5 }}>
-                  {member.bio}
+                  {lang === "es" && member.bioEs ? member.bioEs : member.bio}
                 </p>
               )}
               {member.certs && member.certs.length > 0 && (
