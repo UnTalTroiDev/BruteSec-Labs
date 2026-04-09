@@ -18,8 +18,8 @@ export function HomePage({ onDone }) {
 
   useEffect(() => {
     timers.current = [
-      setTimeout(() => setLeaving(true), 4000),
-      setTimeout(() => onDoneRef.current(), 4400),
+      setTimeout(() => setLeaving(true), 9000),
+      setTimeout(() => onDoneRef.current(), 9400),
     ];
     return () => timers.current.forEach(clearTimeout);
   }, []);
